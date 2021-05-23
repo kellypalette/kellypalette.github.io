@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 추억거리를 공유합니다.</title>
+
+    <meta property="og:title" content="Kelly Ritual" />
+    <meta property="og:description" content="내가 만든 첫번째 웹페이지!" />
+    <meta property="og:image" content="image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+        .mytitle { 
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            width: 300px;
+            height: 40px;
+
+            border: 2px solid #e8344e;
+
+            text-decoration: none;
+            text-align:center;
+
+            line-height: 40px;
+
+            color: #e8344e;
+            font-weight: bold;
+            
+            border-radius: 40px;
+
+        }
+
+        .btn:hover {
+            background-color: #e8344e; 
+            color: white;
+        }
+
+        .box {
+            width: 1000px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+
+            margin: 30px auto 0px auto;
+        }
+        
+        .map {
+            width: 500px;
+            height: 500px;
+
+            margin-right: 30px;
+
+            border-radius: 24px;
+        }
+
+        .story {
+            width: 450px;
+            height: 500px;
+        }
+        
+        .img {
+            width: 450px;
+            height: 300px;
+
+            background-image: url('https://1.bp.blogspot.com/-sAsxIn9-vl0/YKkZ7cwbn7I/AAAAAAAANm4/677FXKoH6kgx58m4QCWMtdoci8Jc9CUIQCLcBGAsYHQ/s2048/%25EA%25B4%2591%25EC%25A3%25BC%2B%25EB%25AC%25B4%25EB%2593%25B1%25EC%2582%25B0%2B%25EA%25B5%25B0%25EC%2599%2595%25EB%25B4%2589%2B%25EC%25A3%25BC%25EB%25A7%2590%25EB%2593%25B1%25EC%2582%25B0%2B%25EC%2598%2588%25EC%2581%2598%25EA%25B3%25A0%2B%25ED%2595%259C%25EC%25A0%2581%25ED%2595%259C%2B%25EC%2582%25B0%25EC%25B1%2585%25EB%25A1%259C%2B%252816%2529.jpg');
+            background-position: center;
+            background-size: cover;
+
+            border-radius:  24px;
+        }
+
+
+        .story > h2 {
+            margin: 20px 0px 0px 0px;
+            color: green;
+        }
+
+        .story > h3 {
+            margin: 5px 0px 0px 0px;
+            font-size: 16px;
+            color: gray;
+            font-weight: normal;
+        }
+
+        .story > p {
+            line-height: 24px;
+
+        }
+
+        @media screen and (max-width: 640px) {
+            h1{
+                font-size: 26px;
+            }
+
+            .box {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .map {
+            width: 100%;
+            height: 200px;
+
+            margin: 0;
+            }
+
+            .story {
+                width: 100%;
+                height: auto;
+
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .img {
+                width: 100%;
+                height: 200px;
+            }
+}
+
+    </style>
+</head>
+<body>
+    <div class="mytitle">
+        <h1>나의 추억거리를 공유합니다</h1>
+        <a class="btn" href="http://spartacodingclub.shop/free/202105/exhibition" target="_blank">모든 수강생들의 추억 보러가기 ></a>
+    </div>
+    <div class="box">
+        <div class="map" id="map"></div>
+        <div class="story">
+            <div class="img"></div>
+            <h2>한화 아쿠아플라넷</h2>
+            <h3>서울특별시 영등포구 여의동 63로 50</h3>
+            <p>
+                재밌었다
+                캬캬캬ㅑ
+                캬캬ㅑㅑ
+            </p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9a82a0fd9780c9b108e9e7b246958c84"></script>
+    <script>
+        var markerPosition = new kakao.maps.LatLng(37.51966039893775, 126.93980041146028)
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+            mapOption = { 
+                center: markerPosition, // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        var imageSrc = "https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/2021_05_free_parents/sparta-marker.png"; 
+        var imageSize = new kakao.maps.Size(65, 86); 
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+        
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: markerPosition,
+            image : markerImage
+        });
+
+    </script>
+</body>
+</html>
